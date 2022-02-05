@@ -40,10 +40,10 @@ IMAGE_PARTITION_MOUNTS=(
 
 # This is passed to truncate --size=$IMAGE_SIZE when operating against the .img file.
 # TODO: Note that always the last partition will be expanded as I just call truncate for now.
-IMAGE_SIZE=8G
+IMAGE_SIZE=4G
 
 # Absolute path of the output image on the host.
-OUTPUT_FILENAME=$(pwd)/out/ubuntu-20.04.3-rt-ros2-galactic-arm64+raspi.img
+OUTPUT_FILENAME=$(pwd)/out/ubuntu-20.04.3-rt-ros-arm64+raspi.img
 
 # Absolute to the location of the rootfs on the host that will be copied into
 # the chroot and therefore the final image.
