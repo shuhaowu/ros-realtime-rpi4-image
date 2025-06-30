@@ -62,8 +62,20 @@ options:
 Bonus setup
 -----------
 
-- [Setup WiFi without a GUI](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#3-wifi-or-ethernet).
-- [Overclocking the CPU](https://magpi.raspberrypi.com/articles/how-to-overclock-raspberry-pi-4).
+### Setup WiFi before booting
+
+- Open up the boot partition and edit `network-config`.
+- Uncomment the `wifis` part of the yaml with your wifi.
+
+## Enable SSH password login
+
+- Open up the book partition and edit `user-data`.
+- Change the `chpasswd` part
+- Set `ssh_pwauth` to true if you want to login via ssh password
+
+### Others
+
+- For [Overclocking the Raspbery Pi 4 CPU](https://magpi.raspberrypi.com/articles/how-to-overclock-raspberry-pi-4).
   I've had good luck with `arm_freq=2000` and `over_voltage=6` when using power
   supplies that can consistently output 5V/3A (like the official power supply).
 - Try out real-time programming with the following resources:

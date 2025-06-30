@@ -10,8 +10,19 @@ duration=${1:-120m}
 # We use tmux because this gives us a "free" no-hup, so benchmarking over SSH
 # is easier.
 
+modelstring=$(cat /proc/cpuinfo | grep Model) 
+
 session="rtbenchmark"
-filename="data/$(lsb_release -r | awk '{print $2}')_$(uname -r).log"
+
+if echo "$modelstring" | grep -q 'Raspberry Pi 4'; then
+  model=rpi4
+elif echo "$modelstring" | grep -q 'Raspberry Pi 5'; then
+  model=rpi5
+else
+  model=unknown
+fi
+
+filename="data/$(lsb_release -r | awk '{print $2}')_$(uname -r)_${model}.log"
 
 # Create new tmux session
 tmux new-session -d -s $session
